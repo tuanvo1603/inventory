@@ -193,8 +193,8 @@ export default function WarehouseTransfer() {
                       {transfer.toWarehouse}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${statusColors[transfer.status]}`}>
-                        {statusLabels[transfer.status]}
+                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${statusColors[transfer.status as keyof typeof statusColors]}`}>
+                        {statusLabels[transfer.status as keyof typeof statusLabels]}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-900">
