@@ -1,0 +1,88 @@
+Dưới đây là các tính năng cần thực hiện cho một Webapp quản lí hệ thống bán điện thoại Iphone cũ.
+Hệ thống cần thiết kế linh hoạt sao cho có thể bật tắt các cụm tính năng như quản lý kho, quản lý điều chuyển kho khi khách hàng chỉ có duy nhất một kho
+
+1. Tài khoản
+- Quản lý tài khoản
++ Danh sách tài khoản
++ Tìm kiếm tài khoản
++ Thêm tài khoản
++ Điều chỉnh thông tin tài khoản
++ Xóa tài khoản
++ Khóa tài khoản
+- Phân quyền tài khoản
++ Danh sách nhóm quyền
++ Thêm nhóm quyền
++ Điều chỉnh nhóm quyền
++ Xóa nhóm quyền
++ Phân quyền tài khoản theo nhóm quyền
+2. Kho và sản phẩm
+- Quản lý kho
++ Danh sách kho
++ Thêm kho
++ Điều chỉnh kho
++ Xóa kho
++ Tồn kho đầu kỳ
+- Quản lý phân loại sản phẩm
++ Danh sách loại sản phẩm
++ Thêm loại sản phẩm
++ Điều chỉnh loại sản phẩm
++ Xóa loại sản phẩm
+- Quản lý sản phẩm
++ Tra cứu sản phẩm
++ Danh sách sản phẩm
++ Thêm sản phẩm
++ Điều chỉnh thông tin sản phẩm
++ Xóa sản phẩm
++ Quản lí Serial/imei sản phẩm
+- Quản lý giá bản
++ Danh sách giá bán
++ Tra cứ giá bán
++ Điều chỉnh giá bán
+3. Điều hành
+- Quản lý nhà cung cấp
++ Tra cứu nhà cung cấp
++ Danh sách nhà cung cấp
++ Thêm nhà cung cấp
++ Cập nhật thông tin nhà cung cấp
++ Xóa nahf cung cấp
+- Quản lý khách hàng
++ Tra cứu khách hàng
++ Danh sách khách hàng
++ Thêm khách hàng
++ Cập nhật thông tin khách hàng
++ Xóa khách hàng
++ Lịch chăm sóc khách hàng(theo trạng thái đơn hàng)
+- Quản lý nhập hàng
++ Tra cứu đơn mua hàng
++ Danh sách đơn hàng
++ Thêm đơn hàng
++ Điều chỉnh thông tin đơn hàng
++ Hủy đơn hàng
++ Chi tiết đơn hàng
++ Xuất trả nhà cung cấp
+- Quản lý đơn hàng bán
++ Tra cứu đơn hàng
++ Danh sách đơn hàng
++ Thêm đơn hàng
++ Điều chỉnh thôn tin đơn hàng
++ Hủy đơn hàng
++ Chi tiết đơn hàng
++ Cập nhật trạng thái đơn hàng
++ Phiếu nhập hàng bán trả lại
+- Quản lý thông tin thanh toán
++ Danh sách thông tin thanh toán
++ Duyệt thông tin thanh toán
++ Tra cứu thông tin thanh toán
+- Quản ly điều chuyển kho
++ Danh sách phiếu điều chuyển
++ Thêm phiếu điều chuyển
++ Điều chỉnh thông tin phiếu điều chuyển
++ Hủy phiếu điều chuyển
+4. Báo cáo thống kê
+- Dashboard
+- Báo cáo doanh số tổng hợp
+- Bảng đối chiếu công nợ
+- Báo cáo doanh số(dành cho sales)
+- Sổ theo dõi công nợ(dành cho sales)
+- Tổng hợp nhật xuất tồn kho
+- Báo cáo tồn kho theo imei/serial
