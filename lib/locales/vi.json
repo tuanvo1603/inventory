@@ -410,7 +410,11 @@
     "enterPassword": "Nhập mật khẩu",
     "selectUserRole": "Chọn vai trò người dùng",
     "cancel": "Hủy",
-    "addAccount": "Thêm tài khoản"
+    "addAccount": "Thêm tài khoản",
+    "userCreatedSuccessfully": "Tạo tài khoản thành công!",
+    "failedToCreateUser": "Tạo tài khoản thất bại",
+    "toggleStatusSuccess": "Thay đổi trạng thái thành công",
+    "deleteUserSuccess": "Xóa tài khoản thành công"
   },
   "roles": {
     "title": "Quản lý vai trò",
