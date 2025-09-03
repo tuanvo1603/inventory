@@ -53,13 +53,13 @@ export default function Dashboard() {
       { name: 'iPhone 13', sales: 16000000, growth: '+12%' }
     ],
     salesTrend: [
-      { period: t('dashboard.monday'), sales: 25000000, orders: 3 },
-      { period: t('dashboard.tuesday'), sales: 18000000, orders: 2 },
-      { period: t('dashboard.wednesday'), sales: 32000000, orders: 4 },
-      { period: t('dashboard.thursday'), sales: 28000000, orders: 3 },
-      { period: t('dashboard.friday'), sales: 35000000, orders: 5 },
-      { period: t('dashboard.saturday'), sales: 22000000, orders: 2 },
-      { period: t('dashboard.sunday'), sales: 16500000, orders: 2 }
+      { period: 'dashboard.monday', sales: 25000000, orders: 3 },
+      { period: 'dashboard.tuesday', sales: 18000000, orders: 2 },
+      { period: 'dashboard.wednesday', sales: 32000000, orders: 4 },
+      { period: 'dashboard.thursday', sales: 28000000, orders: 3 },
+      { period: 'dashboard.friday', sales: 35000000, orders: 5 },
+      { period: 'dashboard.saturday', sales: 22000000, orders: 2 },
+      { period: 'dashboard.sunday', sales: 16500000, orders: 2 }
     ],
     alerts: [
       { type: 'stock', message: t('dashboard.iPhone12StockWarning'), priority: 'high' },
@@ -198,8 +198,8 @@ export default function Dashboard() {
                 const width = (day.sales / maxSales) * 100
                 
                 return (
-                  <div key={day.period} className="flex items-center gap-4">
-                    <div className="w-8 text-sm font-medium text-slate-600">{day.period}</div>
+                  <div key={t(day.period)} className="flex items-center gap-4">
+                    <div className="w-8 text-sm font-medium text-slate-600">{t(day.period)}</div>
                     <div className="flex-1 bg-slate-100 rounded-full h-8 relative overflow-hidden">
                       <div 
                         className="bg-gradient-to-r from-blue-500 to-blue-600 h-full rounded-full transition-all duration-500"
@@ -222,23 +222,23 @@ export default function Dashboard() {
 
           {/* Quick Actions */}
           <div className="bg-white rounded-xl border border-slate-200 p-6">
-            <h3 className="text-lg font-semibold text-slate-800 mb-4">Thao tác nhanh</h3>
+            <h3 className="text-lg font-semibold text-slate-800 mb-4">{t('dashboard.quickActions')}</h3>
             <div className="space-y-3">
               <button className="w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 px-4 py-3 rounded-lg flex items-center gap-3 transition-colors">
                 <span>🛒</span>
-                <span className="font-medium">Tạo đơn bán hàng</span>
+                <span className="font-medium">{t('dashboard.createSale')}</span>
               </button>
               <button className="w-full bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 px-4 py-3 rounded-lg flex items-center gap-3 transition-colors">
                 <span>📦</span>
-                <span className="font-medium">Nhập hàng mới</span>
+                <span className="font-medium">{t('dashboard.newPurchase')}</span>
               </button>
               <button className="w-full bg-purple-50 hover:bg-purple-100 text-purple-700 border border-purple-200 px-4 py-3 rounded-lg flex items-center gap-3 transition-colors">
                 <span>👤</span>
-                <span className="font-medium">Thêm khách hàng</span>
+                <span className="font-medium">{t('dashboard.addCustomer')}</span>
               </button>
               <button className="w-full bg-orange-50 hover:bg-orange-100 text-orange-700 border border-orange-200 px-4 py-3 rounded-lg flex items-center gap-3 transition-colors">
                 <span>📊</span>
-                <span className="font-medium">Xem báo cáo</span>
+                <span className="font-medium">{t('dashboard.viewReports')}</span>
               </button>
             </div>
           </div>
@@ -248,7 +248,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Recent Activity */}
           <div className="bg-white rounded-xl border border-slate-200 p-6">
-            <h3 className="text-lg font-semibold text-slate-800 mb-4">Hoạt động gần đây</h3>
+            <h3 className="text-lg font-semibold text-slate-800 mb-4">{t('dashboard.recentActivity')}</h3>
             <div className="space-y-3">
               {dashboardData.recentActivity.map((activity) => (
                 <div key={activity.id} className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
@@ -278,7 +278,7 @@ export default function Dashboard() {
           <div className="space-y-6">
             {/* Top Products */}
             <div className="bg-white rounded-xl border border-slate-200 p-6">
-              <h3 className="text-lg font-semibold text-slate-800 mb-4">Sản phẩm bán chạy</h3>
+              <h3 className="text-lg font-semibold text-slate-800 mb-4">{t('dashboard.topProducts')}</h3>
               <div className="space-y-3">
                 {dashboardData.topProducts.map((product, index) => (
                   <div key={product.name} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
@@ -299,7 +299,7 @@ export default function Dashboard() {
 
             {/* Alerts */}
             <div className="bg-white rounded-xl border border-slate-200 p-6">
-              <h3 className="text-lg font-semibold text-slate-800 mb-4">Cảnh báo</h3>
+              <h3 className="text-lg font-semibold text-slate-800 mb-4">{t('dashboard.alerts')}</h3>
               <div className="space-y-3">
                 {dashboardData.alerts.map((alert, index) => (
                   <div key={index} className={`p-3 border-l-4 rounded-r-lg ${getAlertColor(alert.priority)}`}>

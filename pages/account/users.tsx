@@ -80,7 +80,7 @@ export default function AccountUsers() {
           <div className="bg-white rounded-xl p-6 border border-slate-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-slate-600">Nhân viên</p>
+                <p className="text-sm text-slate-600">{t('users.staffUsers')}</p>
                 <p className="text-2xl font-bold text-orange-600">
                   {users.filter(u => u.role === 'STAFF').length}
                 </p>
@@ -95,7 +95,7 @@ export default function AccountUsers() {
         {/* Users Table */}
         <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
           <div className="px-6 py-4 border-b border-slate-200">
-            <h2 className="text-lg font-semibold text-slate-800">Danh sách tài khoản</h2>
+            <h2 className="text-lg font-semibold text-slate-800">{t('users.userList')}</h2>
           </div>
           
           <div className="overflow-x-auto">
@@ -103,19 +103,19 @@ export default function AccountUsers() {
               <thead className="bg-slate-50">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
-                    Người dùng
+                    {t('users.userInfo')}
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
-                    Vai trò
+                    {t('users.role')}
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
-                    Trạng thái
+                    {t('common.status')}
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
-                    Ngày tạo
+                    {t('users.createdAt')}
                   </th>
                   <th className="px-6 py-3 text-right text-xs font-medium text-slate-500 uppercase tracking-wider">
-                    Thao tác
+                    {t('common.actions')}
                   </th>
                 </tr>
               </thead>
@@ -152,7 +152,7 @@ export default function AccountUsers() {
                           ? 'bg-emerald-100 text-emerald-800'
                           : 'bg-red-100 text-red-800'
                       }`}>
-                        {user.isActive ? 'Hoạt động' : 'Bị khóa'}
+                        {user.isActive ? t('users.active') : t('users.locked')}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">
@@ -178,51 +178,51 @@ export default function AccountUsers() {
         {showAddForm && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white rounded-xl p-6 w-full max-w-md">
-              <h3 className="text-lg font-semibold text-slate-800 mb-4">Thêm tài khoản mới</h3>
+              <h3 className="text-lg font-semibold text-slate-800 mb-4">{t('users.addNewAccount')}</h3>
               
               <form className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">
-                    Họ tên
+                    {t('users.fullName')}
                   </label>
                   <input
                     type="text"
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Nhập họ tên"
+                    placeholder={t('users.enterFullName')}
                   />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">
-                    Email
+                    {t('common.email')}
                   </label>
                   <input
                     type="email"
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Nhập email"
+                    placeholder={t('users.enterEmail')}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">
-                    Mật khẩu
+                    {t('users.password')}
                   </label>
                   <input
                     type="password"
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Nhập mật khẩu"
+                    placeholder={t('users.enterPassword')}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">
-                    Vai trò
+                    {t('users.role')}
                   </label>
                   <select className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option value="USER">USER</option>
-                    <option value="STAFF">STAFF</option>
-                    <option value="MANAGER">MANAGER</option>
-                    <option value="ADMIN">ADMIN</option>
+                    <option value="USER">{t('users.user')}</option>
+                    <option value="STAFF">{t('users.staff')}</option>
+                    <option value="MANAGER">{t('users.manager')}</option>
+                    <option value="ADMIN">{t('users.admin')}</option>
                   </select>
                 </div>
 
@@ -232,13 +232,13 @@ export default function AccountUsers() {
                     onClick={() => setShowAddForm(false)}
                     className="px-4 py-2 text-slate-600 border border-slate-300 rounded-lg hover:bg-slate-50"
                   >
-                    Hủy
+                    {t('common.cancel')}
                   </button>
                   <button
                     type="submit"
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                   >
-                    Thêm tài khoản
+                    {t('users.addAccount')}
                   </button>
                 </div>
               </form>

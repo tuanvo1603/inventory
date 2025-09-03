@@ -86,7 +86,7 @@ export default function AccountRoles() {
           <div className="bg-white rounded-xl p-6 border border-slate-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-slate-600">Tổng vai trò</p>
+                <p className="text-sm text-slate-600">{t('roles.totalRoles')}</p>
                 <p className="text-2xl font-bold text-slate-800">{roles.length}</p>
               </div>
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -98,7 +98,7 @@ export default function AccountRoles() {
           <div className="bg-white rounded-xl p-6 border border-slate-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-slate-600">Quyền hạn</p>
+                <p className="text-sm text-slate-600">{t('roles.totalPermissions')}</p>
                 <p className="text-2xl font-bold text-blue-600">{allPermissions.length}</p>
               </div>
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -124,7 +124,7 @@ export default function AccountRoles() {
           <div className="bg-white rounded-xl p-6 border border-slate-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-slate-600">Người dùng</p>
+                <p className="text-sm text-slate-600">{t('roles.userCount')}</p>
                 <p className="text-2xl font-bold text-emerald-600">
                   {roles.reduce((sum, r) => sum + r.userCount, 0)}
                 </p>
@@ -158,13 +158,13 @@ export default function AccountRoles() {
 
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm font-medium text-slate-700">Người dùng</span>
+                  <span className="text-sm font-medium text-slate-700">{t('roles.userCount')}</span>
                   <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
                     {role.userCount}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-slate-700">Quyền hạn</span>
+                  <span className="text-sm font-medium text-slate-700">{t('roles.permissions')}</span>
                   <span className="bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-full">
                     {role.permissions.length}
                   </span>
@@ -172,7 +172,7 @@ export default function AccountRoles() {
               </div>
 
               <div>
-                <p className="text-xs font-medium text-slate-500 mb-2">Quyền chính:</p>
+                <p className="text-xs font-medium text-slate-500 mb-2">{t('roles.permissions')}:</p>
                 <div className="flex flex-wrap gap-1">
                   {role.permissions.slice(0, 3).map((permission) => (
                     <span
@@ -261,13 +261,13 @@ export default function AccountRoles() {
                     }}
                     className="px-4 py-2 text-slate-600 border border-slate-300 rounded-lg hover:bg-slate-50"
                   >
-                    Hủy
+                    {t('common.cancel')}
                   </button>
                   <button
                     type="submit"
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                   >
-                    {selectedRole ? 'Cập nhật' : 'Thêm vai trò'}
+                    {selectedRole ? t('common.update') : t('common.add')}
                   </button>
                 </div>
               </form>

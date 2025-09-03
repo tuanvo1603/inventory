@@ -136,6 +136,7 @@
     "lastLogin": "Last Login",
     "userInfo": "User Information",
     "role": "Role",
+    "userList" : "User List",
     "permissions": "Permissions",
     "searchPlaceholder": "Name, email...",
     "fullName": "Full Name",
