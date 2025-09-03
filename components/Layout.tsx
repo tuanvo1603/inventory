@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
+import { useSession, signOut } from 'next-auth/react'
 import LanguageSwitcher from './LanguageSwitcher'
 
 interface LayoutProps {
@@ -11,9 +12,14 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const router = useRouter()
   const { t } = useTranslation()
+  const { data: session, status } = useSession()
   const [openMenus, setOpenMenus] = React.useState<string[]>([])
 
-  const menuItems = [
+  const handleSignOut = () => {
+    signOut({ callbackUrl: '/auth/signin' })
+  }
+
+  const menuItems = React.useMemo(() => [
     {
       title: t('navigation.dashboard'),
       icon: '📊',
@@ -83,7 +89,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         { title: t('navigation.debtReport'), href: '/report/debt' }
       ]
     }
-  ]
+  ], [t])
 
   // Auto-expand parent menu if current page is a sub-item
   React.useEffect(() => {
@@ -95,7 +101,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         }
       }
     })
-  }, [router.pathname])
+  }, [router.pathname, menuItems, openMenus])
+
+  // Redirect to signin if not authenticated
+  React.useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/auth/signin')
+    }
+  }, [status, router])
 
   const toggleMenu = (category: string, event?: React.MouseEvent) => {
     if (event) {
@@ -117,6 +130,20 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const hasActiveSubItem = (subItems: any[]) => {
     return subItems.some(subItem => router.pathname === subItem.href)
+  }
+
+  // Show loading if checking authentication
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-lg">Đang tải...</div>
+      </div>
+    )
+  }
+
+  // Don't render if not authenticated
+  if (!session) {
+    return null
   }
 
   return (
@@ -214,6 +241,36 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             
             <div className="flex items-center space-x-4">
               <LanguageSwitcher />
+              
+              {/* User Info */}
+              {session?.user && (
+                <div className="flex items-center space-x-3">
+                  <div className="text-right">
+                    <p className="text-sm font-medium text-slate-900">
+                      {session.user.name}
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      {session.user.email}
+                    </p>
+                  </div>
+                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm font-medium">
+                      {session.user.name?.charAt(0).toUpperCase()}
+                    </span>
+                  </div>
+                </div>
+              )}
+              
+              {/* Logout Button */}
+              <button
+                onClick={() => signOut()}
+                className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-md transition-colors"
+                title={t('auth.logout')}
+              >
+                <span>🚪</span>
+                <span className="hidden sm:inline">{t('auth.logout')}</span>
+              </button>
+              
               <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
                 <span className="text-slate-600">🔔</span>
               </div>

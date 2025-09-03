@@ -517,5 +517,19 @@
     "title": "Quản lý thanh toán",
     "subtitle": "Theo dõi và duyệt các giao dịch thanh toán",
     "addPayment": "Thêm thanh toán"
+  },
+  "auth": {
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "username": "Tên đăng nhập",
+    "password": "Mật khẩu",
+    "forgotPassword": "Quên mật khẩu",
+    "signIn": "Đăng nhập",
+    "signUp": "Đăng ký",
+    "welcomeBack": "Chào mừng trở lại",
+    "loginToAccount": "Đăng nhập vào tài khoản của bạn",
+    "invalidCredentials": "Thông tin đăng nhập không chính xác",
+    "loginError": "Lỗi đăng nhập",
+    "sessionExpired": "Phiên đăng nhập đã hết hạn"
   }
 }

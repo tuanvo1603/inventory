@@ -648,5 +648,19 @@
     "english": "English",
     "korean": "한국어",
     "selectLanguage": "Select Language"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "username": "Username",
+    "password": "Password",
+    "forgotPassword": "Forgot Password",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "welcomeBack": "Welcome Back",
+    "loginToAccount": "Sign in to your account",
+    "invalidCredentials": "Invalid credentials",
+    "loginError": "Login error",
+    "sessionExpired": "Session expired"
   }
 }

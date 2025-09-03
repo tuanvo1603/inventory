@@ -450,5 +450,19 @@
     "title": "결제 관리",
     "subtitle": "결제 거래 추적 및 승인",
     "addPayment": "결제 추가"
+  },
+  "auth": {
+    "login": "로그인",
+    "logout": "로그아웃",
+    "username": "사용자명",
+    "password": "비밀번호",
+    "forgotPassword": "비밀번호 찾기",
+    "signIn": "로그인",
+    "signUp": "회원가입",
+    "welcomeBack": "다시 오신 것을 환영합니다",
+    "loginToAccount": "계정에 로그인하세요",
+    "invalidCredentials": "잘못된 자격 증명",
+    "loginError": "로그인 오류",
+    "sessionExpired": "세션이 만료되었습니다"
   }
 }

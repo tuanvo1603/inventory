@@ -1,9 +1,15 @@
 import { PrismaClient } from '@prisma/client'
+import bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient()
 
 async function main() {
   console.log('🌱 Seeding database...')
+
+  // Hash passwords
+  const adminPassword = await bcrypt.hash('admin123', 12)
+  const staffPassword = await bcrypt.hash('staff123', 12)
+  const managerPassword = await bcrypt.hash('manager123', 12)
 
   // Create default admin user
   const adminUser = await prisma.user.upsert({
@@ -12,13 +18,43 @@ async function main() {
     create: {
       email: 'admin@inventory.com',
       name: 'System Administrator',
-      password: 'admin123', // In production, this should be hashed
+      password: adminPassword,
       role: 'ADMIN',
       isActive: true,
     },
   })
 
   console.log('✅ Created admin user:', adminUser.email)
+
+  // Create staff user
+  const staffUser = await prisma.user.upsert({
+    where: { email: 'staff@inventory.com' },
+    update: {},
+    create: {
+      email: 'staff@inventory.com',
+      name: 'Staff User',
+      password: staffPassword,
+      role: 'STAFF',
+      isActive: true,
+    },
+  })
+
+  console.log('✅ Created staff user:', staffUser.email)
+
+  // Create manager user
+  const managerUser = await prisma.user.upsert({
+    where: { email: 'manager@inventory.com' },
+    update: {},
+    create: {
+      email: 'manager@inventory.com',
+      name: 'Manager User',
+      password: managerPassword,
+      role: 'MANAGER',
+      isActive: true,
+    },
+  })
+
+  console.log('✅ Created manager user:', managerUser.email)
 
   // Create default roles
   const adminRole = await prisma.role.upsert({
